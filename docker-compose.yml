@@ -1,0 +1,41 @@
+﻿services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: triage-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+  presidio-analyzer:
+    image: mcr.microsoft.com/presidio-analyzer:latest
+    container_name: triage-presidio-analyzer
+    ports:
+      - "5001:3000"
+    restart: unless-stopped
+
+  presidio-anonymizer:
+    image: mcr.microsoft.com/presidio-anonymizer:latest
+    container_name: triage-presidio-anonymizer
+    ports:
+      - "5002:3000"
+    restart: unless-stopped
+
+  pgvector:
+    image: pgvector/pgvector:pg16
+    container_name: triage-pgvector
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: triage_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgvector_data:/var/lib/postgresql/data
+      - ./infra/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql:ro
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
+  pgvector_data:

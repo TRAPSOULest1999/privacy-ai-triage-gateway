@@ -1,0 +1,23 @@
+# IDE and build output
+.vs/
+.vscode/
+**/bin/
+**/obj/
+*.user
+*.suo
+TestResults/
+**/TestResults/
+*.trx
+# Secrets and local runtime state
+.env
+.env.*
+!.env.example
+**/appsettings.Local.json
+**/appsettings.*.local.json
+*.pfx
+*.p12
+*.key
+*.pem
+# Dependencies and generated output
+node_modules/
+artifacts/

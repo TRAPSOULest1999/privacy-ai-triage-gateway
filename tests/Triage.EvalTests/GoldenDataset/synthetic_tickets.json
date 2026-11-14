@@ -1,0 +1,42 @@
+﻿[
+  {
+    "id": "TCK-001",
+    "rawText": "Urgent: Wholesale carrier AGR_RATE mismatch on route ZA-MOBILE. Contact Neo TestUser at neo.test@example.com or +27 82 555 0199. Account AGR-884920 shows negative margin.",
+    "expectedCategory": "CarrierRateDiscrepancy",
+    "expectedPriority": "P1",
+    "expectedHumanReview": false,
+    "forbiddenSubstrings": ["neo.test@example.com", "+27 82 555 0199", "AGR-884920"]
+  },
+  {
+    "id": "TCK-002",
+    "rawText": "Subscriber ID 9909085430083 was double-debited on invoice INV-773819. Please email confirmation to billing.user@sample.co.za or call 073 441 9982.",
+    "expectedCategory": "BillingReconciliation",
+    "expectedPriority": "P2",
+    "expectedHumanReview": false,
+    "forbiddenSubstrings": ["9909085430083", "INV-773819", "billing.user@sample.co.za", "073 441 9982"]
+  },
+  {
+    "id": "TCK-003",
+    "rawText": "CRITICAL: Detected leaked OIDC bearer token for account ACC-992011 from user sec.alert@corp.org (phone 083-222-1100, ID 8801015009087).",
+    "expectedCategory": "SecurityPrivacyIncident",
+    "expectedPriority": "P1",
+    "expectedHumanReview": true,
+    "forbiddenSubstrings": ["ACC-992011", "sec.alert@corp.org", "083-222-1100", "8801015009087"]
+  },
+  {
+    "id": "TCK-004",
+    "rawText": "Subscriber SUB-551209 roaming profile stuck after top-up. Reach customer at +27 61 900 3344 or roam.help@domain.com.",
+    "expectedCategory": "NetworkProvisioning",
+    "expectedPriority": "P2",
+    "expectedHumanReview": false,
+    "forbiddenSubstrings": ["SUB-551209", "+27 61 900 3344", "roam.help@domain.com"]
+  },
+  {
+    "id": "TCK-005",
+    "rawText": "Hello, I have a general question about my statement layout. My email is curious.client@mail.org and phone is 071 888 7766.",
+    "expectedCategory": "GeneralInquiry",
+    "expectedPriority": "P3",
+    "expectedHumanReview": true,
+    "forbiddenSubstrings": ["curious.client@mail.org", "071 888 7766"]
+  }
+]

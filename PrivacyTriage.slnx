@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Triage.Api/Triage.Api.csproj" />
+    <Project Path="src/Triage.McpServer/Triage.McpServer.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Triage.EvalTests/Triage.EvalTests.csproj" />
+  </Folder>
+</Solution>

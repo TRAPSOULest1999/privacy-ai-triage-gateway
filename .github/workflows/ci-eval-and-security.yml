@@ -1,0 +1,23 @@
+name: Build and evaluate
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Evaluate synthetic privacy and routing cases
+        run: dotnet test tests/Triage.EvalTests/Triage.EvalTests.csproj --configuration Release --logger trx
+      - name: Check frontend interactions
+        run: node --test tests/Frontend/portfolio.test.cjs
